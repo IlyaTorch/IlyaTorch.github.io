@@ -95,4 +95,22 @@ $ git-gui
 * `git rerere` — патерны решения конфликтов
 * `git submodule` — вложенный гит реппозиторий
 
+# Изменение даты коммитов
+```
+git filter-branch --env-filter \
+    'if [ $GIT_COMMIT = bc72b26228f786424053db275c92ed4e32f1f331 ]
+     then
+         export GIT_AUTHOR_DATE="Sun Oct 4 21:57:14 2020 +0300"
+         export GIT_COMMITTER_DATE="Sun Oct 4 21:57:14 2020 +0300"
+     fi'
+```
+
+**force**:
+```git filter-branch -f --env-filter \
+    'if [ $GIT_COMMIT = bc72b26228f786424053db275c92ed4e32f1f331 ]
+     then
+         export GIT_AUTHOR_DATE="Sun Oct 4 21:57:14 2020 +0300"
+         export GIT_COMMITTER_DATE="Sun Oct 4 21:57:14 2020 +0300"
+     fi'
+```
 
