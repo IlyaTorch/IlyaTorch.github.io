@@ -86,4 +86,13 @@ $ git-gui
 <li class="has-line-data" data-line-start="94" data-line-end="95"><code>git rerere</code> — патерны решения конфликтов</li>
 <li class="has-line-data" data-line-start="95" data-line-end="96"><code>git submodule</code> — вложенный гит реппозиторий</li>
 </ul>
+<h1>Сменить дату коммита</h1>
+<pre>
+	git filter-branch -f --env-filter \
+    'if [ $GIT_COMMIT = bc72b26228f786424053db275c92ed4e32f1f331 ]
+     then
+         export GIT_AUTHOR_DATE="Sun Oct 4 21:57:14 2020 +0300"
+         export GIT_COMMITTER_DATE="Sun Oct 4 21:57:14 2020 +0300"
+     fi'
+</pre>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body></html>
